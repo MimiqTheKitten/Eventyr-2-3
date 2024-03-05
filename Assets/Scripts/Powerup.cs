@@ -16,8 +16,7 @@ public class Powerup : MonoBehaviour
         if(timer <= 0)
         {
             //reactivating objects
-            gameObject.GetComponent<BoxCollider>().GetComponent<BoxCollider>().enabled = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            GameObjectActive(true);
         }
         //timer
         timer -= Time.deltaTime;
@@ -29,9 +28,13 @@ public class Powerup : MonoBehaviour
         //Give Player powerup and childing it
         Instantiate(powerup,player.transform);
         //Deactivate object
-        gameObject.GetComponent<BoxCollider>().GetComponent<BoxCollider>().enabled = false; 
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        GameObjectActive(false);
         //start timer
         timer = resetTimer;
+    }
+    private void GameObjectActive(bool state)
+    {
+        gameObject.GetComponent<BoxCollider>().GetComponent<BoxCollider>().enabled = state;
+        gameObject.GetComponent<MeshRenderer>().enabled = state;
     }
 }
