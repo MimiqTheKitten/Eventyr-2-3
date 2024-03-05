@@ -7,12 +7,18 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
+
     [SerializeField] float speed = 15.0f;
     [SerializeField] float jumpForce = 10f;
-    private float horizontalInput;
-    private float verticalInput;
-    private Vector3 movedirection;
     [SerializeField] float jumpCheckDis;
+
+    [SerializeField] string playerMoveAxis = "Horizontal 1";// Horizontal 1, Horizontal 2, Horizontal 3, Horizontal 4
+    [SerializeField] string playerMoveJump = "space";//W, up, [8], j
+    [SerializeField] string playerMovePowerup = "s";//s, down, [5], n
+
+    private float horizontalInput;
+    private Vector3 movedirection;
+    
     [SerializeField] LayerMask groundLayer;
     // Start is called before the first frame update
     void Start()
@@ -25,16 +31,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //movement input
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis(playerMoveAxis);
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
         //jumping
-        if(Input.GetKeyDown(KeyCode.Space) && Grounded())
+        if(Input.GetKeyDown(playerMoveJump) && Grounded())
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(playerMovePowerup))
         {
-            //check for child/powerup
+            //check for powerup
             if(transform.childCount != 0)
             {
                 Debug.Log("has child " + transform.childCount);
@@ -66,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Powerup")
         {
             //Debug.Log("Powerup");
-            //Activating powerup and giving the player object
+            //Activating powerup and giving the player object info
             collision.gameObject.GetComponent<Powerup>().Activate(gameObject);
         }
         else return;
