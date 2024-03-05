@@ -6,6 +6,11 @@ public class PowerupDoer : MonoBehaviour
 {
     [SerializeField] int powerUpID;
     [SerializeField] int maxID = 2;
+
+    //BulletPowerup Variables
+    public float BulletSpeed;
+    public GameObject BulletPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +26,13 @@ public class PowerupDoer : MonoBehaviour
             {
             case 0:
                 //powerup 0
+                Debug.Log("0");
+
                     break; 
             
             case 1:
                 //powerup 1
+                Debug.Log("2");
                 break;
 
             default:
