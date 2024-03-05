@@ -8,10 +8,6 @@ public class Powerup : MonoBehaviour
     [SerializeField] float resetTimer = 10;
     float timer;
 
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         //stopping the timer
