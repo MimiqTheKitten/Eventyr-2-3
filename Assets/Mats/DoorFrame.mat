@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LightBrown
+  m_Name: DoorFrame
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -113,12 +113,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.8679245, g: 0.6269397, b: 0.48636523, a: 1}
-    - _Color: {r: 0.8679245, g: 0.6269397, b: 0.48636514, a: 1}
+    - _BaseColor: {r: 0.4339623, g: 0.27113867, b: 0.0016375612, a: 1}
+    - _Color: {r: 0.43396226, g: 0.27113864, b: 0.0016375611, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1444635846757035314
+--- !u!114 &5262907619935392744
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
