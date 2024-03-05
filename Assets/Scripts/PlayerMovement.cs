@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //getting Rigidbody
-        rb =GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
             if(transform.childCount != 0)
             {
                 Debug.Log("has child " + transform.childCount);
-                GetComponentInChildren<PowerupDoer>().Use();
+                GetComponentInChildren<PowerupDoer>().Use(this.gameObject);
             }
         }
     }

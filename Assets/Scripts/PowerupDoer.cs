@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class PowerupDoer : MonoBehaviour
 {
+    [SerializeField] int powerUpID;
+    [SerializeField] int maxID = 2;
     // Start is called before the first frame update
     void Start()
     {
-        //Pick random powerup
+        //picking powerup
+        powerUpID = Random.Range(0, maxID);
     }
 
-    public void Use()
+    public void Use(GameObject user)
     {
         Debug.Log("used");
         //Do powerup
+        switch(powerUpID) 
+            {
+            case 0:
+                //powerup 0
+                    break; 
+            
+            case 1:
+                //powerup 1
+                break;
+
+            default:
+                break;
+            }
         Destroy(gameObject);
     }
 }
