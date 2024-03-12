@@ -26,13 +26,13 @@ public class PowerupDoer : MonoBehaviour
             {
             case 0:
                 //powerup 0
-                Debug.Log("0");
+                Debug.Log(user.name + "used powerID 0");
 
                     break; 
             
             case 1:
                 //powerup 1
-                Debug.Log("2");
+                Debug.Log(user.name + "used powerID 1");
                 break;
 
             default:

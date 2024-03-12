@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
             //check for powerup
             if(transform.childCount != 0)
             {
-                Debug.Log("has child " + transform.childCount);
+                Debug.Log(gameObject.name + "has child " + transform.childCount);
                 GetComponentInChildren<PowerupDoer>().Use(this.gameObject);
             }
         }
@@ -76,6 +76,10 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<Powerup>().Activate(gameObject);
         }
         else return;
+    }
+    public void PlayerDeath()
+    {
+        Destroy(gameObject);
     }
 
     bool Grounded()
