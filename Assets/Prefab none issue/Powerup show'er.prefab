@@ -128,3 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212503d8b38b2824990c9d617e0ec0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpID: 0
+  maxID: 2
+  BulletSpeed: 0
+  BulletPrefab: {fileID: 3630087091191297566, guid: baa0253994f89a0498704cbefa03c089,
+    type: 3}
