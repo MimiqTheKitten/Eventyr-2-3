@@ -33,18 +33,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //movement input
         horizontalInput = Input.GetAxis(playerMoveAxis);
-        lookWay = Mathf.RoundToInt(Input.GetAxis(playerMoveAxis));
-        switch(lookWay)
+        if(horizontalInput > 0)
         {
-            case -1:
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-                break;
-
-            case 1:
-                transform.localScale = new Vector3(1f, 1f, 1f);
-                break;
-            default:
-                break;
+            gameObject.transform.localScale = new Vector3(1, 1 ,1);
+        }
+        else if(horizontalInput < 0) 
+        {
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
 
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
