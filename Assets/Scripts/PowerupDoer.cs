@@ -26,13 +26,18 @@ public class PowerupDoer : MonoBehaviour
             {
             case 0:
                 //powerup 0
-                Debug.Log(user.name + "used powerID 0");
+
+                GameObject SpawnedBullet = Instantiate(BulletPrefab, user.transform.position, user.transform.rotation);
+                Rigidbody rbOnBullet = SpawnedBullet.GetComponent<Rigidbody>();
+                rbOnBullet.velocity = user.transform.position * BulletSpeed;
+
+                Debug.Log("0");
 
                     break; 
             
             case 1:
                 //powerup 1
-                Debug.Log(user.name + "used powerID 1");
+                Debug.Log("1");
                 break;
 
             default:
