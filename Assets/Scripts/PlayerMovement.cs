@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] string playerMovePowerup = "s";//s, down, [5], n
 
     private float horizontalInput;
+    private float lookWay;
     private Vector3 movedirection;
     
     [SerializeField] LayerMask groundLayer;
@@ -32,7 +33,22 @@ public class PlayerMovement : MonoBehaviour
     {
         //movement input
         horizontalInput = Input.GetAxis(playerMoveAxis);
+        lookWay = Mathf.RoundToInt(Input.GetAxis(playerMoveAxis));
+        switch(lookWay)
+        {
+            case -1:
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+                break;
+
+            case 1:
+                transform.localScale = new Vector3(1f, 1f, 1f);
+                break;
+            default:
+                break;
+        }
+
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
+
         //jumping
         if(Input.GetKeyDown(playerMoveJump) && Grounded())
         {
@@ -57,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
+        
+            
+            
         //ground debugging
         if (Grounded())
             Debug.Log("Ground");

@@ -19,7 +19,7 @@ public class DeathSpike : MonoBehaviour
     {
         if(other.GetComponent<PlayerMovement>() != null)
         {
-            Debug.Log(other.name + "has died to spikes");
+            Debug.Log(other.name + " has died to spikes");
             other.GetComponent<PlayerMovement>().PlayerDeath();
         }
     }
