@@ -8,7 +8,7 @@ public class PowerupDoer : MonoBehaviour
     [SerializeField] int maxID = 2;
 
     //BulletPowerup Variables
-    public float bulletSpeed = 2;
+    public float bulletSpeed = 1;
     public GameObject bulletPrefab;
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class PowerupDoer : MonoBehaviour
 
                 GameObject SpawnedBullet = Instantiate(bulletPrefab, user.transform.position, user.transform.rotation);
                 Rigidbody rbOnBullet = SpawnedBullet.GetComponent<Rigidbody>();
-                rbOnBullet.velocity = user.transform.forward * bulletSpeed;
+                rbOnBullet.velocity = user.transform.right * bulletSpeed;
 
                 Debug.Log("0");
 
