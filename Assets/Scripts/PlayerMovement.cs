@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using UnityEngine.EventSystems;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private float lookWay;
     private Vector3 movedirection;
+    bool ifFacingLeft;
     
     [SerializeField] LayerMask groundLayer;
     // Start is called before the first frame update
@@ -36,10 +38,12 @@ public class PlayerMovement : MonoBehaviour
         if(horizontalInput > 0)
         {
             gameObject.transform.localScale = new Vector3(1, 1 ,1);
+            ifFacingLeft = true;
         }
         else if(horizontalInput < 0) 
         {
             gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            ifFacingLeft = false;
         }
 
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
@@ -55,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             if(transform.childCount != 0)
             {
                 Debug.Log(gameObject.name + "has child " + transform.childCount);
-                GetComponentInChildren<PowerupDoer>().Use(this.gameObject);
+                GetComponentInChildren<PowerupDoer>().Use(this.gameObject, ifFacingLeft);
             }
         }
     }
