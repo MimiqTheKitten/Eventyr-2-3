@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpID: 0
-  maxID: 2
-  bulletSpeed: 2
+  maxID: 1
+  bulletSpeed: 10
   bulletPrefab: {fileID: 3630087091191297566, guid: baa0253994f89a0498704cbefa03c089,
     type: 3}
