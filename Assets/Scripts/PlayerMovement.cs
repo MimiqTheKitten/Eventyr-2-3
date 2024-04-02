@@ -8,6 +8,7 @@ using System;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
+    //GameObject winManager;
 
     [SerializeField] float speed = 15.0f;
     [SerializeField] float jumpForce = 10f;
@@ -84,14 +85,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddForce(transform.up * jumpForce);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         //Checking for powerups
-        if (collision.gameObject.tag == "Powerup")
+        if (other.gameObject.tag == "Powerup")
         {
             //Debug.Log("Powerup");
             //Activating powerup and giving the player object info
-            collision.gameObject.GetComponent<Powerup>().Activate(gameObject);
+            other.gameObject.GetComponent<Powerup>().Activate(gameObject);
         }
         else return;
     }
