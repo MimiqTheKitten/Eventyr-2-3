@@ -21,8 +21,7 @@ public class WinManager : MonoBehaviour
         if(players.Length <= 1)
         {
             Debug.Log("Winner found");
-            SceneManager.LoadScene(loadScene);
-            
+            SceneManager.LoadScene(loadScene);            
         }
 
     }

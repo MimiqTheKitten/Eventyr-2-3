@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gustav Scene.unity
     guid: 2a826297d2dcf1249a2f0f4ae98d18ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Player Selection.unity
     guid: baf32f05540cad149b0856cb1a5a99f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/William.unity
     guid: 4e453f1b19fbe244f981aefc7d20410d
   m_configObjects: {}
