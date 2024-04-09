@@ -48,6 +48,7 @@ public class PowerupDoer : MonoBehaviour
 
             case 1:
                 //powerup 1
+                user.GetComponent<PlayerMovement>().Jetpack();
                 Debug.Log("1");
                 break;
 

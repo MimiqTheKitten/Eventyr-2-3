@@ -14,13 +14,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpCheckDis;
 
     [SerializeField] string playerMoveAxis = "Horizontal 1";// Horizontal 1, Horizontal 2, Horizontal 3, Horizontal 4
-    [SerializeField] string playerMoveJump = "space";//W, up, [8], j
+    [SerializeField] string playerMoveJump = "w";//w, up, [8], j
     [SerializeField] string playerMovePowerup = "s";//s, down, [5], n
 
     private float horizontalInput;
     private float lookWay;
     private Vector3 movedirection;
+
     bool ifFacingLeft;
+
+    bool jetpackActive = false;
+    [SerializeField] float jetpackTimer;
+    float jetpackMax = 10;
+
     
     [SerializeField] LayerMask groundLayer;
     // Start is called before the first frame update
@@ -33,6 +39,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //jetpack timer
+        if (jetpackActive)
+        {
+            if(jetpackTimer <= 0)
+            {
+                jetpackActive = false;
+            }
+            jetpackTimer -= Time.deltaTime;
+        }
+
         //movement input
         horizontalInput = Input.GetAxis(playerMoveAxis);
         if(horizontalInput > 0)
@@ -49,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
 
         //jumping
-        if(Input.GetKeyDown(playerMoveJump) && Grounded())
+        if(Input.GetKeyDown(playerMoveJump) && Grounded() ||/*Jetpack powerup*/ Input.GetKeyDown(playerMoveJump) && jetpackActive)
         {
             Jump();
         }
@@ -83,6 +99,11 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         rb.AddForce(transform.up * jumpForce);
+    }
+    public void Jetpack()
+    {
+        jetpackTimer = jetpackMax;
+        jetpackActive = true;
     }
     private void OnTriggerEnter(Collider other)
     {
