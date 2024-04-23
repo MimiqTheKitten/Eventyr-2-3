@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9537050acfda86846ad02368ec76fd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerup: {fileID: 4409747515746477729, guid: 42861980fb1531844ade752f9c69d39f, type: 3}
+  powerup: {fileID: 9149583278898186207, guid: 295b5e484a875584783d8cf88687d03e, type: 3}
   resetTimer: 10
 --- !u!1 &1474231892
 GameObject:
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9537050acfda86846ad02368ec76fd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerup: {fileID: 4409747515746477729, guid: 42861980fb1531844ade752f9c69d39f, type: 3}
+  powerup: {fileID: 9149583278898186207, guid: 295b5e484a875584783d8cf88687d03e, type: 3}
   resetTimer: 10
 --- !u!65 &1784815773
 BoxCollider:
@@ -1612,6 +1612,7 @@ MonoBehaviour:
   playerMoveAxis: Horizontal 2
   playerMoveJump: up
   playerMovePowerup: down
+  jetpackTimer: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private float lookWay;
     private Vector3 movedirection;
+    
 
     bool ifFacingLeft;
 
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //getting Rigidbody
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();        
     }
 
     // Update is called once per frame
