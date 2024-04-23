@@ -76,6 +76,9 @@ public class PowerupDoer : MonoBehaviour
             case 2:
                 //powerup 2 Clone
                 Instantiate(user,user.transform.position,user.transform.rotation);
+                user.tag = "Clone";
+                user.GetComponent<Renderer>().material.color = Color.green;
+                user.name = "clone";
                 break;
 
             default:

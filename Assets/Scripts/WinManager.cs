@@ -25,4 +25,5 @@ public class WinManager : MonoBehaviour
         }
 
     }
+
 }
