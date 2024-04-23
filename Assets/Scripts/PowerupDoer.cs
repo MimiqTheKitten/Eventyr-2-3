@@ -19,29 +19,26 @@ public class PowerupDoer : MonoBehaviour
         gameObject.transform.position = new Vector3(transform.position.x, transform.position.y+1,transform.position.z);
         //picking powerup
         powerUpID = Random.Range(0, maxID);
-        var cubeRenderer = gameObject.GetComponent<Renderer>();
-
-        // change color to red
-        cubeRenderer.material.SetColor("_Color", Color.red);
-        /*
+        Renderer cubeRenderer = GetComponent<Renderer>();
+        
         switch (powerUpID)
         {
             case 0:
-                gameObject.GetComponent<Renderer>().material.SetColor("_color",Color.blue);
+                cubeRenderer.material.color = Color.red;
                 Debug.Log("Color 1");
                 break;
             case 1:
-                gameObject.GetComponent<Renderer>().material.SetColor("_color", Color.blue);
+                cubeRenderer.material.color = Color.white;
                 Debug.Log("Color 2");
                 break;
             case 2:
-                GetComponent<Renderer>().material.SetColor("_color", Color.blue);
+                cubeRenderer.material.color = Color.green;
                 Debug.Log("Color 3");
                 break;
             default:
 
                 break;
-        }*/
+        }
     }
 
     public void Use(GameObject user, bool ifFacingLeft)
@@ -51,7 +48,7 @@ public class PowerupDoer : MonoBehaviour
         switch (powerUpID)
         {
             case 0:
-                //powerup 0
+                //powerup 0 Bullet
 
                 GameObject SpawnedBullet = Instantiate(bulletPrefab, user.transform.position, user.transform.rotation);
                 Rigidbody rbOnBullet = SpawnedBullet.GetComponent<Rigidbody>();
@@ -71,9 +68,14 @@ public class PowerupDoer : MonoBehaviour
                 break;
 
             case 1:
-                //powerup 1
+                //powerup 1 Jetpack
                 user.GetComponent<PlayerMovement>().Jetpack();
                 Debug.Log(user.name + " used Jetpack powerup");
+                break;
+
+            case 2:
+                //powerup 2 Clone
+                Instantiate(user,user.transform.position,user.transform.rotation);
                 break;
 
             default:
