@@ -76,12 +76,14 @@ public class PowerupDoer : MonoBehaviour
             case 2:
                 //powerup 2 Clone
                 Instantiate(user,user.transform.position,user.transform.rotation);
+                //Making user the clone
                 user.tag = "Clone";
                 user.GetComponent<Renderer>().material.color = Color.green;
-                user.name = "clone";
+                user.name = "Clone";
                 break;
 
             default:
+                Destroy(gameObject);
                 break;
         }
         Destroy(gameObject);

@@ -34,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         //getting Rigidbody
-        rb = GetComponent<Rigidbody>();        
+        rb = GetComponent<Rigidbody>();
+        Destroy(transform.GetChild(0).gameObject);
     }
 
     // Update is called once per frame
