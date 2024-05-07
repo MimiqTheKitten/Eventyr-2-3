@@ -106,8 +106,7 @@ public class PlayerMovement : MonoBehaviour
         } else
         {
             rb.AddForce(transform.up * jetpackForce);
-        }
-        
+        }        
     }
     public void Jetpack()
     {
