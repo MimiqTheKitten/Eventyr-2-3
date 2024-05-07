@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float speed = 15.0f;
     [SerializeField] float jumpForce = 10f;
+    [SerializeField] float jetpackForce = 5f;
     [SerializeField] float jumpCheckDis;
 
     [SerializeField] string playerMoveAxis = "Horizontal 1";// Horizontal 1, Horizontal 2, Horizontal 3, Horizontal 4
@@ -100,7 +101,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        rb.AddForce(transform.up * jumpForce);
+        if(!jetpackActive) {
+            rb.AddForce(transform.up * jumpForce);
+        } else
+        {
+            rb.AddForce(transform.up * jetpackForce);
+        }
+        
     }
     public void Jetpack()
     {
