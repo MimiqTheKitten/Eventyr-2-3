@@ -72,11 +72,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+        //Use powerup
         if (Input.GetKeyDown(playerMovePowerup))
         {
             //check for powerup
             if(transform.childCount != 0)
             {
+                PlaySound("UseSound");
                 //Debug.Log(gameObject.name + "has child " + transform.childCount);
                 GetComponentInChildren<PowerupDoer>().Use(this.gameObject);
             }
