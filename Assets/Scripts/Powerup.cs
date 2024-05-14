@@ -24,7 +24,7 @@ public class Powerup : MonoBehaviour
     public void Activate(GameObject player)
     {
         //Debugging who and what
-        Debug.Log(gameObject.name + " activaed by " + player.name);
+        //Debug.Log(gameObject.name + " activaed by " + player.name);
         //Give Player powerup and childing it
         Instantiate(powerup,player.transform);
         //Deactivate object

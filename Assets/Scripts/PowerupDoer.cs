@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class PowerupDoer : MonoBehaviour
 {
     [SerializeField] int powerUpID;
-    [SerializeField] int maxID = 2;
+    [SerializeField] int maxID = 3;
     
     //BulletPowerup Variables
     public float bulletSpeed = 10;
@@ -23,17 +23,17 @@ public class PowerupDoer : MonoBehaviour
         
         switch (powerUpID)
         {
-            case 0:
+            case <= 1:
                 cubeRenderer.material.color = Color.red;
-                Debug.Log("Color 1");
-                break;
-            case 1:
-                cubeRenderer.material.color = Color.white;
-                Debug.Log("Color 2");
+                //Debug.Log("Color 1");
                 break;
             case 2:
+                cubeRenderer.material.color = Color.white;
+                //Debug.Log("Color 2");
+                break;
+            case 3:
                 cubeRenderer.material.color = Color.green;
-                Debug.Log("Color 3");
+                //Debug.Log("Color 3");
                 break;
             default:
 
@@ -43,7 +43,7 @@ public class PowerupDoer : MonoBehaviour
 
     public void Use(GameObject user)
     {
-        Debug.Log("used");
+        //Debug.Log("used");
         //Do powerup
         switch (powerUpID)
         {
@@ -77,7 +77,7 @@ public class PowerupDoer : MonoBehaviour
             case 1:
                 //powerup 1 Jetpack
                 user.GetComponent<PlayerMovement>().Jetpack();
-                Debug.Log(user.name + " used Jetpack powerup");
+                //Debug.Log(user.name + " used Jetpack powerup");
                 break;
 
             case 2:

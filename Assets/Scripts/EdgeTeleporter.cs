@@ -6,8 +6,7 @@ public class EdgeTeleporter : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float screenEdgeX = 11;
-    [SerializeField] float screenEdgeY = 0;
-    Vector3 teleport
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,12 +18,12 @@ public class EdgeTeleporter : MonoBehaviour
     {
         if (transform.position.x > screenEdgeX)
         {
-            Transform.Translate(new Vector3(-screenEdgeX * 2, 0, 0));
+            transform.Translate(Vector3.left * screenEdgeX * 2, Space.World);
         }
         
-        /*if (transform.position.x < ScreenEdgeX)
+        if (transform.position.x < -screenEdgeX)
         {
-            transform.position.x += ScreenEdgeX * 2;
-        }*/
+            transform.Translate(Vector3.right * screenEdgeX * 2, Space.World);
+        }
     }
 }

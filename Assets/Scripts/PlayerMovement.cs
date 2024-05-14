@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             //check for powerup
             if(transform.childCount != 0)
             {
-                Debug.Log(gameObject.name + "has child " + transform.childCount);
+                //Debug.Log(gameObject.name + "has child " + transform.childCount);
                 GetComponentInChildren<PowerupDoer>().Use(this.gameObject);
             }
         }
@@ -94,10 +94,10 @@ public class PlayerMovement : MonoBehaviour
         
             
             
-        //ground debugging
+        /*//ground debugging
         if (Grounded())
             Debug.Log("Ground");
-        else Debug.Log("Not grounded");
+        else Debug.Log("Not grounded");*/
     }
     void Jump()
     {
