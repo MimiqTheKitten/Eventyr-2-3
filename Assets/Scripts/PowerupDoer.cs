@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class PowerupDoer : MonoBehaviour
 {
     [SerializeField] int powerUpID;
-    [SerializeField] int maxID = 3;
+    [SerializeField] int maxID = 10;
     
     //BulletPowerup Variables
     public float bulletSpeed = 10;
@@ -23,20 +23,20 @@ public class PowerupDoer : MonoBehaviour
         
         switch (powerUpID)
         {
-            case <= 1:
-                cubeRenderer.material.color = Color.red;
+
+            case 0:
+                cubeRenderer.material.color = Color.white;
+                //Debug.Log("Color 0");
+                break;
+            case 1:
+                cubeRenderer.material.color = Color.green;
                 //Debug.Log("Color 1");
                 break;
-            case 2:
-                cubeRenderer.material.color = Color.white;
-                //Debug.Log("Color 2");
-                break;
-            case 3:
-                cubeRenderer.material.color = Color.green;
-                //Debug.Log("Color 3");
+            case >1:
+                cubeRenderer.material.color = Color.red;
+                //Debug.Log("Color >1");
                 break;
             default:
-
                 break;
         }
     }
@@ -48,7 +48,22 @@ public class PowerupDoer : MonoBehaviour
         switch (powerUpID)
         {
             case 0:
-                //powerup 0 Bullet
+                //powerup 0 Jetpack
+                user.GetComponent<PlayerMovement>().Jetpack();
+                //Debug.Log(user.name + " used Jetpack powerup");
+                break;
+
+            case 1:
+                //powerup 1 Clone
+                Instantiate(user,user.transform.position,user.transform.rotation);
+                //Making user the clone
+                user.tag = "Clone";
+                user.GetComponent<Renderer>().material.color = Color.green;
+                user.name = "Clone";
+                break;
+
+            case >1:
+                //powerup >1 Bullet
 
                 GameObject SpawnedBullet = Instantiate(bulletPrefab, user.transform.position, user.transform.rotation);
                 Rigidbody rbOnBullet = SpawnedBullet.GetComponent<Rigidbody>();
@@ -71,23 +86,8 @@ public class PowerupDoer : MonoBehaviour
                 //}
 
                 //Debug.Log("0");
-
                 break;
 
-            case 1:
-                //powerup 1 Jetpack
-                user.GetComponent<PlayerMovement>().Jetpack();
-                //Debug.Log(user.name + " used Jetpack powerup");
-                break;
-
-            case 2:
-                //powerup 2 Clone
-                Instantiate(user,user.transform.position,user.transform.rotation);
-                //Making user the clone
-                user.tag = "Clone";
-                user.GetComponent<Renderer>().material.color = Color.green;
-                user.name = "Clone";
-                break;
 
             default:
                 Destroy(gameObject);

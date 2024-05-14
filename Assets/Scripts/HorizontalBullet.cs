@@ -5,18 +5,19 @@ using UnityEngine;
 public class HorizontalBullet : MonoBehaviour
 {
     public GameObject user;
+    Rigidbody rb;
 
-    // Start is called before the first frame update
-    void Start()
+    void awake()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void update()
     {
-        
+        rb.AddForce(rb.velocity * 0.5f);
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == null || other.gameObject == user)
@@ -30,7 +31,8 @@ public class HorizontalBullet : MonoBehaviour
         }
 
 
-        Debug.Log("Destroyed by " + other.gameObject.name);
+        //Debug.Log("Destroyed by " + other.gameObject.name);
         Destroy(gameObject);
     }
+
 }
