@@ -41,7 +41,7 @@ public class PowerupDoer : MonoBehaviour
         }
     }
 
-    public void Use(GameObject user, bool ifFacingLeft)
+    public void Use(GameObject user)
     {
         Debug.Log("used");
         //Do powerup
@@ -53,17 +53,24 @@ public class PowerupDoer : MonoBehaviour
                 GameObject SpawnedBullet = Instantiate(bulletPrefab, user.transform.position, user.transform.rotation);
                 Rigidbody rbOnBullet = SpawnedBullet.GetComponent<Rigidbody>();
                 SpawnedBullet.GetComponent<HorizontalBullet>().user = user;
+                
+                rbOnBullet.velocity = user.transform.forward * bulletSpeed;
 
-                if (ifFacingLeft == true)
-                {
-                    rbOnBullet.velocity = user.transform.right * bulletSpeed;
-                }
-                else
-                {
-                    rbOnBullet.velocity = -user.transform.right * bulletSpeed;
-                }
+                //if (ifFacingLeft == true)
+                //{
+                    //rbOnBullet.velocity = user.transform.right * bulletSpeed;
+                    //rbOnBullet.velocity = -Camera.main.transform.right * bulletSpeed;
+                    
+                    //Debug.Log("Left");
+                //}
+                //else
+                //{
+                    //Debug.Log("Right");
+                    //rbOnBullet.velocity = -user.transform.right * bulletSpeed;
+                    //rbOnBullet.velocity = -Camera.main.transform.right * bulletSpeed;
+                //}
 
-                Debug.Log("0");
+                //Debug.Log("0");
 
                 break;
 

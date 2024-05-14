@@ -22,9 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private float lookWay;
     private Vector3 movedirection;
     
-
-    bool ifFacingLeft;
-
     bool jetpackActive = false;
     [SerializeField] float jetpackTimer;
     float jetpackMax = 10;
@@ -36,7 +33,10 @@ public class PlayerMovement : MonoBehaviour
     {
         //getting Rigidbody
         rb = GetComponent<Rigidbody>();
-        Destroy(transform.GetChild(0).gameObject);
+        if(transform.childCount > 0 && transform.GetChild(0)!=null)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -56,13 +56,13 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis(playerMoveAxis);
         if(horizontalInput > 0)
         {
-            gameObject.transform.localScale = new Vector3(1, 1 ,1);
-            ifFacingLeft = true;
+            gameObject.transform.rotation = Quaternion.Euler(0f,90f,0f);
+            //gameObject.transform.localScale = new Vector3(1, 1 ,1);
         }
         else if(horizontalInput < 0) 
         {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            ifFacingLeft = false;
+            gameObject.transform.rotation = Quaternion.Euler(0f,90f,0f);
+            //gameObject.transform.localScale = new Vector3(-1, 1, 1);
         }
 
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             if(transform.childCount != 0)
             {
                 Debug.Log(gameObject.name + "has child " + transform.childCount);
-                GetComponentInChildren<PowerupDoer>().Use(this.gameObject, ifFacingLeft);
+                GetComponentInChildren<PowerupDoer>().Use(this.gameObject);
             }
         }
     }
@@ -106,7 +106,8 @@ public class PlayerMovement : MonoBehaviour
         } else
         {
             rb.AddForce(transform.up * jetpackForce);
-        }        
+        }
+        
     }
     public void Jetpack()
     {
