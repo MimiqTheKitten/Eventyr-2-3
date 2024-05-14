@@ -101,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
+        PlaySound("JumpSound");
         if(!jetpackActive) {
             rb.AddForce(transform.up * jumpForce);
         } else
@@ -127,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerDeath()
     {
+        PlaySound("DeathSound");
         Destroy(gameObject);
     }
 
@@ -143,5 +145,9 @@ public class PlayerMovement : MonoBehaviour
     {
         //drawing the box for the groundcheck
         Gizmos.DrawWireCube(GetComponent<Collider>().bounds.center + -transform.up * jumpCheckDis, transform.localScale);
+    }
+    void PlaySound(string name)
+    {
+        FindObjectOfType<AudioManager>().play(name);
     }
 }

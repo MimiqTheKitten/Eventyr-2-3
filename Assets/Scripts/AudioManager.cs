@@ -1,13 +1,19 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    [SerializeField] string theme;
+    [SerializeField] string mainTheme;
+    [SerializeField] string battleTheme;
 
     public static AudioManager instance;
+
+    [SerializeField] int[] battleScenes;
+    int scene;
     void Awake()
     {
         if (instance == null)
@@ -19,7 +25,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         foreach (var s in sounds)
         {
@@ -34,10 +40,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        if(theme != null)
-        {
-            play(theme);
-        }
+        PlayTheme();
     }
     public void play(string name)
     {
@@ -49,5 +52,17 @@ public class AudioManager : MonoBehaviour
         }
         Debug.Log("playing "+ name);
         s.source.Play();
+    }
+    void PlayTheme()
+    {
+        scene = SceneManager.GetActiveScene().buildIndex;
+        if (scene == 0 && mainTheme != null)
+        {
+            play(mainTheme);
+        }
+        if(battleScenes.Contains(scene) && battleTheme != null)
+        {
+            play(battleTheme);
+        }
     }
 }
