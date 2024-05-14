@@ -47,13 +47,13 @@ MonoBehaviour:
   sounds:
   - name: DeathSound
     clip: {fileID: 8300000, guid: 536f5c8ecce4a6f49b0e6e71e713f36f, type: 3}
-    volume: 0.5
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BattleTheme
     clip: {fileID: 8300000, guid: 590c42593d9f3b345ad810a9e6a15cc4, type: 3}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -61,6 +61,30 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c0bc312ff6a18e44c8e65ac9d0642b88, type: 3}
     volume: 0.6
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: JumpSound
+    clip: {fileID: 8300000, guid: 6d664cc273500e043b4a303e6dca3210, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LandingSound
+    clip: {fileID: 8300000, guid: e37a6bcf95816ad49a6176d0e7badfa4, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WinSound
+    clip: {fileID: 8300000, guid: 1f731ea4971d87141bf7deaed9de883b, type: 3}
+    volume: 0.85
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UseSound
+    clip: {fileID: 8300000, guid: 6d664cc273500e043b4a303e6dca3210, type: 3}
+    volume: 0.6
+    pitch: 2
     loop: 0
     source: {fileID: 0}
   mainTheme: MainMenu
