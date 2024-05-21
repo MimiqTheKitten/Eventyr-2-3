@@ -7,14 +7,15 @@ public class HorizontalBullet : MonoBehaviour
     public GameObject user;
     Rigidbody rb;
 
-    void awake()
+    void start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
     void update()
     {
-        rb.AddForce(rb.velocity * 0.5f);
+        Debug.Log(rb.velocity);
+        rb.velocity = rb.velocity * 2;
     }
 
 

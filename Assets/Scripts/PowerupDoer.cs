@@ -70,7 +70,7 @@ public class PowerupDoer : MonoBehaviour
                 SpawnedBullet.GetComponent<HorizontalBullet>().user = user;
                 
                 rbOnBullet.velocity = user.transform.forward * bulletSpeed;
-
+                Debug.Log("THIS HERE IS " + user.transform.forward);
                 //if (ifFacingLeft == true)
                 //{
                     //rbOnBullet.velocity = user.transform.right * bulletSpeed;

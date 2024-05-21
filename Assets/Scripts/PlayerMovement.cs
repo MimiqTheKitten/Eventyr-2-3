@@ -54,15 +54,15 @@ public class PlayerMovement : MonoBehaviour
 
         //movement input
         horizontalInput = Input.GetAxis(playerMoveAxis);
-        if(horizontalInput > 0)
+        if(horizontalInput > 0) //if player is moving right,
         {
-            gameObject.transform.rotation = Quaternion.Euler(0f,90f,0f);
-            //gameObject.transform.localScale = new Vector3(1, 1 ,1);
+            gameObject.transform.rotation = Quaternion.Euler(0f,90f,0f); //make player face right
+            
         }
-        else if(horizontalInput < 0) 
+        else if(horizontalInput < 0) //if player is moving left,
         {
-            gameObject.transform.rotation = Quaternion.Euler(0f,90f,0f);
-            //gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            gameObject.transform.rotation = Quaternion.Euler(0f,-90f,0f); //make player face left
+
         }
 
         movedirection = new Vector3(horizontalInput * speed, rb.velocity.y, 0);
