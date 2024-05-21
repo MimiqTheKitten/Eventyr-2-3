@@ -7,8 +7,9 @@ public class WinManager : MonoBehaviour
 {
     GameObject[] players;
     [SerializeField] int loadScene = 0;
-    float timer = 3f;
-    bool doTimer;
+    [SerializeField] float timer = 3f;
+    bool doTimer = false;
+    bool winnerFound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,20 +20,20 @@ public class WinManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {     
+        players = GameObject.FindGameObjectsWithTag("Player");
+        if(players.Length <= 1 && !winnerFound)
+        {
+            FindObjectOfType<AudioManager>().play("WinSound");
+            Debug.Log("Winner found");
+            doTimer = true; 
+            winnerFound = true;                 
+        }
         if (doTimer)
         {
             timer -= Time.deltaTime;
         }
-        players = GameObject.FindGameObjectsWithTag("Player");
-        if(players.Length <= 1)
-        {
-            FindObjectOfType<AudioManager>().play("WinSound");
-            Debug.Log("Winner found");
-            
-                 
-        }
-        if(timer <= 0)
+        if (timer <= 0)
         {
             SceneManager.LoadScene(loadScene);
         }
