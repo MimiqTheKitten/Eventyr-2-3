@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     //GameObject winManager;
 
     [SerializeField] float speed = 15.0f;
-    [SerializeField] float jumpForce = 10f;
-    [SerializeField] float jetpackForce = 5f;
+    [SerializeField] float jumpForce = 400f;
+    [SerializeField] float jetpackForce = 150f;
     [SerializeField] float jumpCheckDis;
 
     [SerializeField] string playerMoveAxis = "Horizontal 1";// Horizontal 1, Horizontal 2, Horizontal 3, Horizontal 4

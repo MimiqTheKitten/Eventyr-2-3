@@ -15,7 +15,7 @@ public class HorizontalBullet : MonoBehaviour
     void update()
     {
         Debug.Log(rb.velocity);
-        rb.velocity = rb.velocity * 2;
+        rb.AddForce (rb.velocity * 2);
     }
 
 
