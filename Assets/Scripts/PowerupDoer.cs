@@ -58,7 +58,7 @@ public class PowerupDoer : MonoBehaviour
                 Instantiate(user,user.transform.position,user.transform.rotation);
                 //Making user the clone
                 user.tag = "Clone";
-                user.GetComponent<Renderer>().material.color = Color.green;
+                user.GetComponent<Renderer>().material.color = Color.grey;
                 user.name = "Clone";
                 break;
 

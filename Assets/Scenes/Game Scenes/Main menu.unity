@@ -1590,8 +1590,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Player 1\t\tPlayer 2\nMove: A D\t\tMove: Left/right arrow\nJump: w\t\tJump:
-    Up arrow\nUse: S\t\tUse: Down arrow\n\nPlayer 3\t\tPlayer 4\nMove: Num 4/6\tMove:
-    B / M\nJump: Num 8\tJump: J\nUse: Num 5\t\tUse: N"
+    Up arrow\nUse: S\t\tUse: Down arrow\n\nPlayer 3\t\tPlayer 4\nMove: B / M\t\tMove:
+    Num 4/6\t\nJump: J\t\tJump: Num 8\nUse:  N\t\tUse: Num 5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: Rivals of Arthur II
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
