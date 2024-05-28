@@ -53,15 +53,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BattleTheme
     clip: {fileID: 8300000, guid: 590c42593d9f3b345ad810a9e6a15cc4, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: MainMenu
     clip: {fileID: 8300000, guid: c0bc312ff6a18e44c8e65ac9d0642b88, type: 3}
-    volume: 0.6
+    volume: 0.4
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: JumpSound
     clip: {fileID: 8300000, guid: 6d664cc273500e043b4a303e6dca3210, type: 3}
@@ -83,10 +83,10 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: UseSound
     clip: {fileID: 8300000, guid: 6d664cc273500e043b4a303e6dca3210, type: 3}
-    volume: 0.6
+    volume: 0.8
     pitch: 2
     loop: 0
     source: {fileID: 0}
   mainTheme: MainMenu
   battleTheme: BattleTheme
-  battleScenes: 01000000
+  battleScenes: 01000000020000000300000004000000
